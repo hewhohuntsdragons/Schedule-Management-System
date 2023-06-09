@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Management System | Santos & Visaya</title>
+    <link rel="stylesheet" href="./darkmode-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <h1>Time Login System</h1>
+        <ul>
+            <li><a id="darkmode-button" href="./index.html" onclick="showDarkModeToast()"></a></li>
+            <li><a href="./employee-list.html"></a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="left-div">
+            <div class="date-container" onclick="copyDateTimeToClipboard()">
+                <div class="date" id="date"></div>
+            </div>
+            <div class="time-container" onclick="copyTimeToClipboard()">
+                <div class="time" id="time"></div>
+            </div>
+        </div>
+        <div class="right-div">
+            <div class="table">
+                <table id="data-table"></table>
+            </div>
+            <div class="input-container">
+                <input type="text" id="input-data" placeholder="Enter Employee ID" value="">
+                <button id="input-button" onclick="fetchData()">></button>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+    <footer>
+        <ul class="footer-button-list">
+            <li><button class="time-button" id="time-in" onclick="showTimeInToast()">Time In</button></li>
+            <li><button class="time-button" id="time-out" onclick="showTimeOutToast()">Time Out</button></li>
+        </ul>
+    </footer>
+    </div>
+
+    <script>
+        // Update date and time
+        function updateDateTime() {
+            const dateElement = document.getElementById('date');
+            const timeElement = document.getElementById('time');
+            const now = new Date();
+
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('en-US', dateOptions);
+
+            const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+            const timeString = now.toLocaleTimeString('en-US', timeOptions);
+
+            dateElement.textContent = dateString;
+            timeElement.textContent = timeString;
+        }
+
+        // Fetch data based on user input
+        function fetchData() {
+            const input = document.getElementById('input-data').value;
+            console.log('Fetching data:', input);
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Copy the date to the clipboard
+        function copyDateTimeToClipboard() {
+        const dateElement = document.getElementById('date');
+        const dateString = dateElement.textContent;
+
+        navigator.clipboard.writeText(dateString)
+            .then(() => {
+            console.log('Copied to clipboard:', dateString);
+            showDateToast();
+            })
+            .catch((error) => {
+            console.error('Error copying to clipboard:', error);
+            });
+        }
+
+        // Copy the time to the clipboard
+        function copyTimeToClipboard() {
+        const timeElement = document.getElementById('time');
+        const timeString = timeElement.textContent;
+
+        navigator.clipboard.writeText(timeString)
+            .then(() => {
+            console.log('Copied to clipboard:', timeString);
+            showTimeToast();
+            })
+            .catch((error) => {
+            console.error('Error copying to clipboard:', error);
+            });
+        }
+
+        // Show toast message for "Copied the date to clipboard!"
+        function showDateToast() {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = 'Copied the date to clipboard!';
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+            }, 2000);
+        }
+
+        // Show toast message for "Copied the time to clipboard!"
+        function showTimeToast() {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = 'Copied the time to clipboard!';
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+            }, 2000);
+        }
+
+        function showTimeInToast() {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = 'Time in successfully recored!';
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+            }, 2000);
+        }
+
+        function showTimeOutToast() {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = 'Time out successfully recorded!';
+
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.remove();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
