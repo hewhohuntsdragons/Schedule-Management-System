@@ -28,7 +28,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
+    color: #F4EEE0;
     background-color: #453C67;
     padding: 0.3vw;
 }
@@ -45,6 +45,7 @@ nav ul {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 0;
     margin: 0 1vw 0 0;
 }
 
@@ -72,11 +73,17 @@ li {
     justify-content: center;
     text-align: center;
     background-color: #393646;
-    color: white;
     margin: 1.11vw;
     padding-bottom: 0;
     flex: 3;
     border-radius: 10px;
+}
+
+.left-div h3 {
+    color: #F4EEE0;
+    opacity: 20%;
+    font-size: small;
+    text-align: end;
 }
 
 .right-div {
@@ -84,7 +91,6 @@ li {
     padding: 1.1vw;
     margin: 1.11vw;
     background-color: #393646;
-    color: white;
 }
 
 footer {
@@ -137,6 +143,7 @@ footer button:active {
 
 #faculty-detail-button:hover {
     outline: solid white 4px;
+    color: #F4EEE0;
 }
 
 #darkmode-button {
@@ -164,7 +171,6 @@ footer button:active {
     border: none;
     cursor: pointer;
     background-color: #F4EEE0;
-    color: #393646;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,6 +189,7 @@ footer button:active {
 
 #input-button:hover {
     outline: solid white 4px;
+    color: #F4EEE0;
 }
 
 #input-button:active {
@@ -196,10 +203,12 @@ footer button:active {
 
 #time-in:hover {
     outline: solid #6D67E4 4px;
+    color:#6D67E4;
 }
 
 #time-out:hover {
     outline: solid white 4px;
+    color: #F4EEE0;
 }
 
 /* Table Styles */
@@ -209,10 +218,13 @@ footer button:active {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #f1f1f1;
+
+    background-color: #F4EEE0;
     color: white;
+
+    outline: solid #6D67E4 3px;
     padding: 8.3vw;
-    margin: 1em 0.3em 1em 0.3em;
+    margin: 0;
     flex: 2;
     height: 14em;
     border-radius: 10px;
@@ -246,12 +258,13 @@ input::-webkit-inner-spin-button {
     height: 3.5em;
 }
 
-#input-data {
+#input-field {
     border: none;
-    background-color: #f1f1f1;
+    background-color: #F4EEE0;
+
     flex: 1;
-    font-weight: bold;
     font-size: 1.1rem;
+    font-weight: bold;
     padding: 1vw;
     border-radius: 99rem;
 }
@@ -295,7 +308,6 @@ footer ul li {
 
 .date {
     font-size: 1.5vw;
-    margin-bottom: 10px;
     padding: 1vw;
 }
 
